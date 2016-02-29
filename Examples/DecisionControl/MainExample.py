@@ -1,5 +1,5 @@
-from HighLevelHardwareCode.ExampleHighLevel import *
-from LowLevelHardwareCode.ExampleLowLevel import *
+from Examples.HighLevelHardwareCode.ExampleHighLevel import *
+from Examples.LowLevelHardwareCode.ExampleLowLevel import *
 __author__ = 'travi_000'
 
 
