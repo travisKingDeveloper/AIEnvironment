@@ -1,10 +1,15 @@
+import HighLevelHardwareCode.ExampleHighLevel
+import LowLevelHardwareCode.ExampleLowLevel
 __author__ = 'travi_000'
 
-print("Hello world")
-# is this a comment
+
+print("Simulating Calling functions in different directory's")
+
+HighLevelHardwareCode.ExampleHighLevel.function_high_level()
+LowLevelHardwareCode.ExampleLowLevel.function_low_level()
 
 
-print("First Addition to py environment")
-# I'm sure this is an environment
+
+
 
 
