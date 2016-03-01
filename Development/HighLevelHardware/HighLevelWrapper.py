@@ -6,7 +6,7 @@ print("High Level Wrapper Not Initialized")
 class HighLevel(object):
     def __init__(self):
         # constructor object for all high level processes
-        self.CameraManagment = CameraManagement()
+        self.CameraManagement = CameraManagement()
 
 
 class CameraManagement(object):
