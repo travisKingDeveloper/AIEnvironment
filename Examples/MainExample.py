@@ -1,12 +1,11 @@
-from Examples.HighLevelHardwareCode.ExampleHighLevel import *
 from Examples.LowLevelHardwareCode.ExampleLowLevel import *
+
 __author__ = 'travi_000'
 
 
 print("Simulating Calling functions in different directory's")
 
 function_low_level()
-function_high_level()
 
 lowLevel = LowLevel()
 
