@@ -1,4 +1,4 @@
-from Examples.LowLevelHardwareCode.ExampleLowLevel import *
+from Examples.LowLevelHardwareCode.ExampleLowLevel import function_low_level, LowLevel
 
 __author__ = 'travi_000'
 
