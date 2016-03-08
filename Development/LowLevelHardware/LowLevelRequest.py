@@ -14,13 +14,13 @@ class LowLevelRequest(object):
         # when constructor is called, parameters are passed like "Movement"=Movement.Forward
         # example: request = new LowLevelRequest("wheelTurn"=WheelTurn.NoTurn, "Movement"=Movement.Forward)
 
-        self.wheelTurn = WheelTurn
-        self.movement = Movement
-        self.servo = Servo
+        self.wheelTurn = kwargs.get("WheelTurn", WheelTurn.NoTurn)
+        self.movement = kwargs.get("Movement", Movement.NoMovement)
+        self.servo = kwargs.get("Servo", Servo.Up)
         # self.gate = Gate
-        self.degrees = NumberOfDegrees
-        self.wall = Wall
-        self.CameraDegrees = CameraDegrees
+        self.degrees = kwargs.get("NumberOfDegrees", 0)
+        self.wall = kwargs.get("Wall", Wall.NoMovement)
+        self.CameraDegrees = kwargs.get("CameraDegrees", 0)
 
     def giveMessage(self):
         returnVar = ""
