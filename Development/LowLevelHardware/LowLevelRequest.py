@@ -5,9 +5,15 @@ __author__ = 'travi_000'
 
 class LowLevelRequest(object):
 
-    def __init__(self , WheelTurn, NumberOfDegrees, Movement, Servo, Wall, CameraDegrees):
+    def __init__(self, **kwargs):
         # Camera Degrees is 0 - 180
         # constructor object
+
+        # If you want to go the **kwargs route
+        # **kwargs is a dictionary, basically we're passing keyword arguments.
+        # when constructor is called, parameters are passed like "Movement"=Movement.Forward
+        # example: request = new LowLevelRequest("wheelTurn"=WheelTurn.NoTurn, "Movement"=Movement.Forward)
+
         self.wheelTurn = WheelTurn
         self.movement = Movement
         self.servo = Servo
@@ -26,9 +32,9 @@ class LowLevelRequest(object):
             returnVar += ("T" + "L" if self.wheelTurn == WheelTurn.Left else "R" + str(self.degrees) + "|")
 
         returnVar += ("A" + "1" if self.servo == Servo.Down else "0" + "|")
-        returnVar += "G"
 
         # Commented Out For Further Use
+        #returnVar += "G"
         # if self.gate == Gate.Left:
         #     returnVar += "10|"
         # elif self.gate == Gate.Right:
