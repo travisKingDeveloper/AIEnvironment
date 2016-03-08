@@ -14,6 +14,7 @@ class LowLevelRequest(object):
         # self.gate = Gate
         self.degrees = NumberOfDegrees
         self.wall = Wall
+        # camera degrees = -1 then don't turn
         self.CameraDegrees = CameraDegrees
 
     def giveMessage(self):
