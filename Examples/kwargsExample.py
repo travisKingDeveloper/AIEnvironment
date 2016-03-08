@@ -20,6 +20,6 @@ class kwargsExample:
 test1 = kwargsExample(arg1="1", arg2="two")
 print test1.arg1, test1.arg2, test1.arg3
 
-dict = {"arg1": "one", "arg3": 3, "arg2": "blah"}
+dict = {"arg1": "one", "arg3": 3, "arg2": "something"}
 test2 = kwargsExample(**dict)
 print test2.arg1, test2.arg2, test2.arg3

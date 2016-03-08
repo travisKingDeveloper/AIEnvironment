@@ -12,7 +12,8 @@ class LowLevelRequest(object):
         # If you want to go the **kwargs route
         # **kwargs is a dictionary, basically we're passing keyword arguments.
         # when constructor is called, parameters are passed like "Movement"=Movement.Forward
-        # example: request = new LowLevelRequest("wheelTurn"=WheelTurn.NoTurn, "Movement"=Movement.Forward)
+        # example: request = LowLevelRequest("wheelTurn"=WheelTurn.NoTurn, "Movement"=Movement.Forward)
+        # or create a dictionary and pass it like so LowLevelRequest(**dict)
 
         self.wheelTurn = kwargs.get("WheelTurn", WheelTurn.NoTurn)
         self.movement = kwargs.get("Movement", Movement.NoMovement)
