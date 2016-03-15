@@ -1,3 +1,5 @@
+import enum as enum
+
 class kwargsExample:
 
     def __init__(self, **kwargs):
@@ -23,3 +25,6 @@ print test1.arg1, test1.arg2, test1.arg3
 dict = {"arg1": "one", "arg3": 3, "arg2": "something"}
 test2 = kwargsExample(**dict)
 print test2.arg1, test2.arg2, test2.arg3
+
+class Enum(enum):
+    arg1 = "one"

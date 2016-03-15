@@ -1,5 +1,4 @@
-__author__ = 'travi_000'
-
+import serial
 
 class LowLevelResponse(object):
     def __init__(self):
@@ -12,12 +11,9 @@ class LowLevelResponse(object):
         self.isLineCenter = False
         self.isLineRight = False
 
-    def getMessage(self):
-        returnVar = ""
-
-        file = open("test.txt", 'r')
-        stream = file.read()
-        packetList = stream.split("|")
+    def getMessage(self, port):
+        line = port.readline()
+        packetList = line.split("|")
 
         for packet in packetList:
             if packet[0] == "B":
