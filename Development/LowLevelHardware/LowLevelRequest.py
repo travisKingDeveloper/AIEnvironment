@@ -57,6 +57,7 @@ class LowLevelRequest(object):
 
         return returnVar
 
+
 class WheelTurn(enum):
     Left = 1
     Right = 2
