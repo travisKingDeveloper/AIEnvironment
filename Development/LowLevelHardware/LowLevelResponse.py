@@ -12,8 +12,7 @@ class LowLevelResponse(object):
         self.isLineRight = False
 
     def getMessage(self, port):
-        line = port.readline()
-        packetList = line.split("|")
+        line = port.read_until("\n")
 
         for packet in packetList:
             if packet[0] == "B":
