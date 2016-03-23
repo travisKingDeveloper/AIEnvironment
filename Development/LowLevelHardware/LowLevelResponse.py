@@ -16,11 +16,11 @@ class LowLevelResponse(object):
 
         for packet in packetList:
             if packet[0] == "B":
-                self.isBumpedUpperLeft = True if packet[1] == 1 else False
-                self.isBumpedUpperRight = True if packet[2] == 1 else False
-                self.isBumpedLowerLeft = True if packet[3] == 1 else False
-                self.isBumpedLowerRight = True if packet[4] == 1 else False
+                self.isBumpedUpperLeft = (True if packet[1] == 1 else False)
+                self.isBumpedUpperRight = (True if packet[2] == 1 else False)
+                self.isBumpedLowerLeft = (True if packet[3] == 1 else False)
+                self.isBumpedLowerRight = (True if packet[4] == 1 else False)
             elif packet[0] == "L":
-                self.isLineLeft = True if packet[1] == 1 else False
-                self.isLineCenter = True if packet[2] == 1 else False
-                self.isLineRight = True if packet[1] == 1 else False
+                self.isLineLeft = (True if packet[1] == 1 else False)
+                self.isLineCenter = (True if packet[2] == 1 else False)
+                self.isLineRight = (True if packet[1] == 1 else False)

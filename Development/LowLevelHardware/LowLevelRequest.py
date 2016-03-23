@@ -1,8 +1,3 @@
-import enum as enum
-
-__author__ = 'travi_000'
-
-
 class LowLevelRequest(object):
 
     def __init__(self, **kwargs):
@@ -17,7 +12,7 @@ class LowLevelRequest(object):
 
         self.wheelTurn = kwargs.get("WheelTurn", "NoTurn")
         self.movement = kwargs.get("Movement", "NoMovement")
-        self.servo = kwargs.get("Servo", "Up")
+        self.servo = kwargs.get("Servo", "NoMovement")
         # self.gate = Gate
         self.turnDegrees = kwargs.get("NumberOfDegrees", 0)
         self.wall = kwargs.get("Wall", "NoMovement")
@@ -27,12 +22,13 @@ class LowLevelRequest(object):
         returnVar = ""
 
         if self.movement != "NoMovement":
-            returnVar += ("M" + "1" if self.Movement == "Forward" else "0" + "\n")
+            returnVar += ("M" + ("1" if self.movement == "Forward" else "0") + "\n")
 
         if self.wheelTurn != "NoTurn":
-            returnVar += ("T" + "L" if self.wheelTurn == "Left" else "R" + str(self.turnDegrees) + "\n")
+            returnVar += ("T" + ("L" if self.wheelTurn == "Left" else "R") + str(self.turnDegrees) + "\n")
 
-        returnVar += ("A" + "1" if self.servo == "Down" else "0" + "\n")
+        if self.servo != "NoMovement":
+            returnVar += ("A" + ("1" if self.servo == "Down" else "0") + "\n")
 
         # Commented Out For Further Use
         #returnVar += "G"
@@ -56,32 +52,3 @@ class LowLevelRequest(object):
             returnVar += "C" + str(self.CameraDegrees) + "\n"
 
         return returnVar
-
-
-class WheelTurn(enum):
-    Left = 1
-    Right = 2
-    NoTurn = 3
-
-
-class Movement(enum):
-    Forward = 1
-    Backward = 2
-    NoMovement = 3
-
-
-class Servo(enum):
-    Up = 0
-    Down = 1
-
-
-class Wall(enum):
-    Left = 1
-    Right = 2
-    NoMovement = 0
-    Close = 3
-
-# class Gate(enum):
-#     Left = 10
-#     Right = 01
-#     Blocked = 00
