@@ -15,11 +15,11 @@ class LowLevelResponse(object):
         line = port.read_until("\n")
 
         if line[0] == "B":
-            self.isBumpedUpperLeft = (True if packet[1] == 1 else False)
-            self.isBumpedUpperRight = (True if packet[2] == 1 else False)
-            self.isBumpedLowerLeft = (True if packet[3] == 1 else False)
-            self.isBumpedLowerRight = (True if packet[4] == 1 else False)
+            self.isBumpedUpperLeft = (True if line[1] == 1 else False)
+            self.isBumpedUpperRight = (True if line[2] == 1 else False)
+            self.isBumpedLowerLeft = (True if line[3] == 1 else False)
+            self.isBumpedLowerRight = (True if line[4] == 1 else False)
         elif line[0] == "L":
-            self.isLineLeft = (True if packet[1] == 1 else False)
-            self.isLineCenter = (True if packet[2] == 1 else False)
-            self.isLineRight = (True if packet[1] == 1 else False)
+            self.isLineLeft = (True if line[1] == 1 else False)
+            self.isLineCenter = (True if line[2] == 1 else False)
+            self.isLineRight = (True if line[1] == 1 else False)
