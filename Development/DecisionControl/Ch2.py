@@ -40,7 +40,7 @@ camera = cv.CV()
 
 #decide on the next state based on variables
 def getGoal(elapsTime, curState):
-    newState = ""
+    newState = curState
     multiplier = droppedCount + 1
     #multiplier increments when a color has been collected and dropped off
     #indicates which run we're on, and the maximum ellapsed time we can have
@@ -197,7 +197,7 @@ while True:
             if response.isBumpedUpperLeft and response.isBumpedUpperRight:
                 request.movement = "Backward"
                 request.wheelTurn = "NoTurn"
-                for i in range(0, 5):
+                for i in range(0, 10):
                     port.write(request.giveMessage())
                     time.sleep(.1)
 
@@ -234,7 +234,7 @@ while True:
 
         continue
 
-    # THIS ONLY WORKS IF WE ARE DUMPING WAS THE LAST STATE
+    # THIS ONLY WORKS IF DUMPING WAS THE LAST STATE
     # Turn 90 degrees and go forward some amount, however far home would be
     # afterwards, dance.
     elif state == "Find Home":
@@ -245,7 +245,7 @@ while True:
         time.sleep(.5)
         request.wheelTurn = "NoTurn"
 
-        for i in range(0,5):
+        for i in range(0,10):
             request.movement = "Forward"
             port.write(request.giveMessage())
             time.sleep(.5)
@@ -254,7 +254,7 @@ while True:
         request.movement = "NoMovement"
 
         # DANCE!!!!!!!!
-        for i in range(0,5):
+        for i in range(0,10):
             request.wheelTurn = "Right"
             request.turnDegrees = 180
             request.servo = ("Up" if request.servo == "Down" else "Up")

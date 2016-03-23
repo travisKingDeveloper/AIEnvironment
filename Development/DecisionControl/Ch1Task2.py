@@ -18,18 +18,23 @@ pic = cv.CV()
 object = pic.get_all_objects()
 
 ball = object[0]
-
-# or whatever this will be
 objectColor = ball[0]
 objectDistance = ball[1]
 
 print "color: " + str(objectColor) + " objectDistance: " + str(objectDistance)
 
+#if it's purple, stop far enough away to put the arm down and push
+if objectColor == "Purple":
+    distance = .8
+else:
+    distance = .4
+
 #move forward until the robot is at the object
-while objectDistance > .4:
+while objectDistance > distance:
     request.movement = "Forward"
     message = request.giveMessage()
     print "sending " + message
+    port.write(message)
     port.write(message)
     time.sleep(.5)
     object = pic.get_all_objects()
@@ -43,7 +48,7 @@ print "stop moving... lower arm"
 request.movement = "NoMovement"
 request.servo = "Down"
 port.write(request.giveMessage())
-time.sleep(2)
+time.sleep(1)
 
 #perform action
 if objectColor == "orange":
@@ -58,14 +63,14 @@ elif objectColor == "green":
     request.turnDegrees = 45
     port.write(request.giveMessage())
 elif objectColor == "purple":
-    #move forward 5 times
+    #move forward 10 times
     request.movement = "Forward"
-    for i in range(0, 5):
+    for i in range(0, 10):
         port.write(request.giveMessage())
 elif objectColor == "yellow":
-    #move backward 5 times
+    #move backward 10 times
     request.movement = "Backward"
-    for i in range(0, 5):
+    for i in range(0, 10):
         port.write(request.giveMessage())
 else:
     print "unidentified color"
